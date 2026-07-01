@@ -1,14 +1,155 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Merienda:wght@300..900&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* ─── HyperTerm Dark (default) ─────────────────────────────────────────────
+   Inspired by the HyperTerm terminal palette: deep near-black bg, neon accents.
+   ────────────────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg-primary:    #0d0d0d;  /* outermost wrapper */
+  --bg-editor:     #1c1c1c;  /* main editor surface */
+  --bg-sidebar:    #141414;  /* sidebar / header / footer */
+  --color-accent:  #ff0090;  /* hot pink  — keywords, active tabs */
+  --color-purple:  #cc00ff;  /* neon purple — types / decorators */
+  --color-cyan:    #00e5ff;  /* neon cyan  — variables / functions */
+  --color-green:   #00ff88;  /* neon green — strings */
+  --color-yellow:  #ffe600;  /* neon yellow — properties / keys */
+  --color-orange:  #ff6b00;  /* neon orange — numbers */
+  --border-color:  #2d2d2d;  /* chrome borders */
+  --text-primary:  #f5f5f5;  /* body text */
+  --text-muted:    #707070;  /* comments, placeholders */
+  --line-number:   #3d3d3d;  /* gutter line numbers */
+  --glow-color:    rgba(255, 0, 144, 0.35);
+}
+
+/* ─── HyperTerm Light ───────────────────────────────────────────────────────
+   Same neon palette pushed dark for contrast on white/light-gray surfaces.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary:    #e8e8e8;
+  --bg-editor:     #fafafa;
+  --bg-sidebar:    #f0f0f0;
+  --color-accent:  #c2006a;  /* dark pink */
+  --color-purple:  #8800cc;  /* dark purple */
+  --color-cyan:    #0066aa;  /* dark blue */
+  --color-green:   #006940;  /* dark green */
+  --color-yellow:  #856400;  /* dark amber */
+  --color-orange:  #c45000;  /* dark orange */
+  --border-color:  #d0d0d0;
+  --text-primary:  #1a1a1a;
+  --text-muted:    #606060;
+  --line-number:   #c0c0c0;
+  --glow-color:    rgba(194, 0, 106, 0.15);
+}
+
+/* ─── Night Owl ─────────────────────────────────────────────────────────────
+   Sarah Drasner's Night Owl: deep navy with soft neon syntax colors.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-theme="night-owl"] {
+  --bg-primary:    #011627;
+  --bg-editor:     #011627;
+  --bg-sidebar:    #0b2942;
+  --color-accent:  #ff6db3;
+  --color-purple:  #c792ea;
+  --color-cyan:    #80deea;
+  --color-green:   #addb67;
+  --color-yellow:  #ffeb95;
+  --color-orange:  #f78c6c;
+  --border-color:  #1d3b53;
+  --text-primary:  #d6deeb;
+  --text-muted:    #637777;
+  --line-number:   #4b6479;
+  --glow-color:    rgba(255, 109, 179, 0.25);
+}
+
+/* ─── Outrun (Synthwave '84) ─────────────────────────────────────────────────
+   Retro 80s neon aesthetic: deep violet-black with magenta/cyan glows.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-theme="outrun"] {
+  --bg-primary:    #12001f;
+  --bg-editor:     #1a0035;
+  --bg-sidebar:    #0e0018;
+  --color-accent:  #ff00ff;
+  --color-purple:  #9d00ff;
+  --color-cyan:    #00e5ff;
+  --color-green:   #00ff9f;
+  --color-yellow:  #ffd900;
+  --color-orange:  #ff6e27;
+  --border-color:  #3d0060;
+  --text-primary:  #e8d9ff;
+  --text-muted:    #7a5c9e;
+  --line-number:   #4a2870;
+  --glow-color:    rgba(255, 0, 255, 0.35);
+}
+
+/* ─── Tokyo Night Dark ───────────────────────────────────────────────────────
+   Calm dark-blue editor with muted neon — inspired by enkia/tokyo-night.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-theme="tokyo-night"] {
+  --bg-primary:    #1a1b26;
+  --bg-editor:     #24283b;
+  --bg-sidebar:    #16161e;
+  --color-accent:  #7aa2f7;
+  --color-purple:  #bb9af7;
+  --color-cyan:    #7dcfff;
+  --color-green:   #9ece6a;
+  --color-yellow:  #e0af68;
+  --color-orange:  #ff9e64;
+  --border-color:  #292e42;
+  --text-primary:  #c0caf5;
+  --text-muted:    #565f89;
+  --line-number:   #3b4261;
+  --glow-color:    rgba(122, 162, 247, 0.2);
+}
+
+/* ─── Quiet Light ────────────────────────────────────────────────────────────
+   Gentle light theme with cool-blue accent and low-contrast neutrals.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-theme="quiet-light"] {
+  --bg-primary:    #e8e9ec;
+  --bg-editor:     #f5f5f5;
+  --bg-sidebar:    #dde0e0;
+  --color-accent:  #4078f2;
+  --color-purple:  #a626a4;
+  --color-cyan:    #0184bc;
+  --color-green:   #50a14f;
+  --color-yellow:  #c18401;
+  --color-orange:  #986801;
+  --border-color:  #d4d4d4;
+  --text-primary:  #333333;
+  --text-muted:    #8a8a8a;
+  --line-number:   #b0b0b0;
+  --glow-color:    rgba(64, 120, 242, 0.15);
+}
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  /* background-color: #020618;
-  display: flex ;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
+mark.search-highlight {
+  background-color: var(--color-yellow);
+  color: var(--bg-primary);
+  border-radius: 2px;
+  padding: 0 1px;
+}
 
-/* bg-[#020618] h-screen flex items-center justify-center */
+/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-sidebar); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ─── Animations ────────────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-start infinite; }
+
+@keyframes accent-glow {
+  0%, 100% { text-shadow: 0 0 8px var(--color-accent), 0 0 20px var(--glow-color); }
+  50%       { text-shadow: 0 0 18px var(--color-accent), 0 0 44px var(--glow-color); }
+}
+.accent-glow { animation: accent-glow 3s ease-in-out infinite; }
